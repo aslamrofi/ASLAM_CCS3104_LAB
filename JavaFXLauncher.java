@@ -32,7 +32,7 @@ public class JavaFXLauncher extends Application {
     static {
         loadLeaderboard();
     }
-
+    //New Changes
     static class PlayerStats implements Serializable {
         private static final long serialVersionUID = 1L;
         String playerName;
