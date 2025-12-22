@@ -1,5 +1,5 @@
 package com.example.project;
-// abc test
+
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.*;
@@ -17,6 +17,7 @@ import javafx.beans.property.*;
 import java.io.*;
 import java.net.InetAddress;
 import java.util.*;
+
 public class JavaFXLauncher extends Application {
 
     private Stage primaryStage;
@@ -31,7 +32,7 @@ public class JavaFXLauncher extends Application {
     static {
         loadLeaderboard();
     }
-//fish
+
     static class PlayerStats implements Serializable {
         private static final long serialVersionUID = 1L;
         String playerName;
