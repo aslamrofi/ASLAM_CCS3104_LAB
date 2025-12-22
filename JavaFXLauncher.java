@@ -1,6 +1,5 @@
 package com.example.project;
 // abc test
-//new
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.*;
@@ -32,7 +31,7 @@ public class JavaFXLauncher extends Application {
     static {
         loadLeaderboard();
     }
-//hsigiuh2euwbb
+
     static class PlayerStats implements Serializable {
         private static final long serialVersionUID = 1L;
         String playerName;
