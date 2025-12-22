@@ -17,7 +17,6 @@ import javafx.beans.property.*;
 import java.io.*;
 import java.net.InetAddress;
 import java.util.*;
-//SOMETHINGHH
 public class JavaFXLauncher extends Application {
 
     private Stage primaryStage;
