@@ -64,7 +64,6 @@ public class JavaFXLauncher extends Application {
             this.gridSize = gridSize;
         }
     }
-
     static class LeaderboardEntry {
         int rank;
         String playerName;
@@ -84,7 +83,6 @@ public class JavaFXLauncher extends Application {
             this.gridSize = gridSize;
         }
     }
-
     public static void addLeaderboardEntry(String playerName, int wonThisGame, double timeInSeconds, String mode, int gridSize) {
         String normalizedName = playerName.toLowerCase().trim();
 
@@ -97,7 +95,6 @@ public class JavaFXLauncher extends Application {
         stats.addGame(wonThisGame, timeInSeconds, mode, gridSize);
         saveLeaderboard();
     }
-
     public static List<LeaderboardEntry> getTopPlayers() {
         List<LeaderboardEntry> entries = new ArrayList<>();
 
@@ -131,12 +128,10 @@ public class JavaFXLauncher extends Application {
 
         return entries;
     }
-
     public static void clearLeaderboard() {
         playerStatsMap.clear();
         saveLeaderboard();
     }
-
     private static void saveLeaderboard() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(LEADERBOARD_FILE))) {
             oos.writeObject(playerStatsMap);
@@ -144,7 +139,6 @@ public class JavaFXLauncher extends Application {
             System.err.println("Error saving leaderboard: " + e.getMessage());
         }
     }
-
     @SuppressWarnings("unchecked")
     private static void loadLeaderboard() {
         File file = new File(LEADERBOARD_FILE);
@@ -228,7 +222,6 @@ public class JavaFXLauncher extends Application {
             }
         }, Platform::exit);
     }
-
     private void showMainMenu() {
         BorderPane root = new BorderPane();
         root.setStyle("-fx-background: linear-gradient(to bottom right, #667eea 0%, #764ba2 100%);");
@@ -261,7 +254,6 @@ public class JavaFXLauncher extends Application {
         fade.setToValue(1);
         fade.play();
     }
-
     private HBox createNavigationBar() {
         HBox navBar = new HBox(0);
         navBar.setAlignment(Pos.CENTER);
@@ -284,7 +276,6 @@ public class JavaFXLauncher extends Application {
 
         return navBar;
     }
-
     private Button createNavButton(String text, javafx.event.EventHandler<javafx.event.ActionEvent> handler) {
         Button btn = new Button(text);
         btn.setFont(Font.font("Arial", FontWeight.BOLD, 16));
@@ -318,7 +309,6 @@ public class JavaFXLauncher extends Application {
 
         return btn;
     }
-
     private void showPlayView() {
         mainContainer.getChildren().clear();
 
@@ -369,7 +359,6 @@ public class JavaFXLauncher extends Application {
         fade.setToValue(1);
         fade.play();
     }
-
     private HBox createGridSelector() {
         HBox gridBox = new HBox(18);
         gridBox.setAlignment(Pos.CENTER);
@@ -400,7 +389,6 @@ public class JavaFXLauncher extends Application {
 
         return gridBox;
     }
-
     private RadioButton createGridRadioButton(String text, int size, ToggleGroup group) {
         RadioButton rb = new RadioButton(text);
         rb.setFont(Font.font("Arial", FontWeight.BOLD, 16));
@@ -423,7 +411,6 @@ public class JavaFXLauncher extends Application {
 
         return rb;
     }
-
     private Button createGameModeCard(String title, String description, String color) {
         Button card = new Button();
         card.setMinWidth(550);
@@ -468,7 +455,6 @@ public class JavaFXLauncher extends Application {
 
         return card;
     }
-
     private void showLeaderboardView() {
         mainContainer.getChildren().clear();
 
@@ -499,7 +485,6 @@ public class JavaFXLauncher extends Application {
         fade.setToValue(1);
         fade.play();
     }
-
     private TableView<LeaderboardEntry> createLeaderboardTable() {
         TableView<LeaderboardEntry> table = new TableView<>();
         table.setStyle("-fx-background-color: rgba(255, 255, 255, 0.15); " +
@@ -554,7 +539,6 @@ public class JavaFXLauncher extends Application {
 
         return table;
     }
-
     private void showSettingsView() {
         mainContainer.getChildren().clear();
 
@@ -632,7 +616,6 @@ public class JavaFXLauncher extends Application {
         fade.setToValue(1);
         fade.play();
     }
-
     private void startComputerGame() {
         ChoiceDialog<String> dialog = new ChoiceDialog<>("Medium", "Easy", "Medium", "Hard");
         dialog.setTitle("Select Difficulty");
@@ -645,13 +628,11 @@ public class JavaFXLauncher extends Application {
             game.showGame(gameStage);
         });
     }
-
     private void startFriendGame() {
         Stage gameStage = new Stage();
         GameWindow game = new GameWindow(username, "FRIEND", null, selectedGridSize);
         game.showGame(gameStage);
     }
-
     private void showOnlineOptions() {
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.setTitle("Online Multiplayer");
@@ -687,7 +668,6 @@ public class JavaFXLauncher extends Application {
 
         dialog.showAndWait();
     }
-
     private void styleDialogButton(Button btn, String color) {
         btn.setMinWidth(320);
         btn.setMinHeight(65);
@@ -715,7 +695,6 @@ public class JavaFXLauncher extends Application {
             st.play();
         });
     }
-
     private void hostOnlineGame() {
         try {
             String localIP = InetAddress.getLocalHost().getHostAddress();
@@ -803,7 +782,6 @@ public class JavaFXLauncher extends Application {
             e.printStackTrace();
         }
     }
-
     private void joinOnlineGame() {
         Stage joinStage = new Stage();
         joinStage.setTitle("Join Game");
@@ -951,7 +929,6 @@ public class JavaFXLauncher extends Application {
         alert.setContentText(message);
         alert.showAndWait();
     }
-
     private void startServerInBackground() {
         new Thread(() -> {
             try {
@@ -963,7 +940,6 @@ public class JavaFXLauncher extends Application {
             }
         }).start();
     }
-
     public static void main(String[] args) {
         launch(args);
     }
